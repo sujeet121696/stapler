@@ -31,7 +31,7 @@ export function getState(): StaplerState {
   return state
 }
 
-function subscribe(listener: () => void): () => void {
+export function subscribe(listener: () => void): () => void {
   listeners.add(listener)
   return () => listeners.delete(listener)
 }

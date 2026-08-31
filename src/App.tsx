@@ -43,7 +43,9 @@ export default function App() {
 
   const onFiles = useCallback(async (files: Iterable<File>) => {
     setError(null)
-    for (const file of files) {
+    // Snapshot before any await — FileList/DataTransfer entries are gone once the event ends
+    const picked = Array.from(files)
+    for (const file of picked) {
       if (!file.name.toLowerCase().endsWith('.pdf')) {
         setError(`"${file.name}" skipped — only PDF files for now.`)
         continue
@@ -67,8 +69,8 @@ export default function App() {
           </span>
         </h1>
         <p className="tagline">
-          Tell your browser what you need done with your documents. The agent handles the
-          workflow — your files never leave this tab.
+          An AI agent preps your documents right in your browser via WebMCP — it finds the
+          right pages itself, merges and downloads. Your files never leave your device.
         </p>
       </header>
 

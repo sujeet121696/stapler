@@ -1,7 +1,8 @@
 # 📎 Stapler
 
-**Tell your browser what you need done with your documents. The agent handles
-the workflow — while your files never leave your device.**
+**An AI agent preps your documents right in your browser via WebMCP — it finds
+the right pages itself, merges and downloads. Your files never leave your
+device.**
 
 Stapler is a local document workspace that lets an AI agent turn a
 natural-language document task into a sequence of real document operations.
@@ -65,6 +66,13 @@ You need an agent that speaks WebMCP. Two options:
 | `rename_document` | Renames a document in the workspace |
 | `export_document` | Downloads a document to the user's machine |
 | `undo` | Reverts the last workspace change |
+
+The registrations are **live**: schemas are regenerated whenever the workspace
+changes, so every `document` parameter is an enum of the currently loaded
+filenames — the agent can't reference a file that isn't there. Document tools
+appear once files are loaded, and `merge_documents` registers only when at
+least two documents exist — connected agents always see a tool set that
+matches the actual workspace.
 
 Every action — human or agent — appears in the on-page operations log, and
 `undo` makes agent mistakes recoverable. The agent proposes and orchestrates;
