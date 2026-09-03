@@ -66,7 +66,7 @@ export function registerStaplerTools(): () => void {
         title: 'List documents',
         description:
           'List every document currently loaded in the Stapler workspace, with name, page count and file size. ' +
-          'Call this first to see what documents are available before doing anything else.' +
+          'Useful for discovering what is currently in the workspace.' +
           (docs.length === 0 ? ' More document tools appear once documents are loaded.' : ''),
         inputSchema: { type: 'object', properties: {}, additionalProperties: false },
         annotations: { readOnlyHint: true },
@@ -235,13 +235,16 @@ export function registerStaplerTools(): () => void {
                 minItems: 2,
                 description: 'Names of the documents to merge, in the desired page order.',
               },
-              output_name: { type: 'string', description: 'Name for the merged document.' },
+              output_name: {
+                type: 'string',
+                description: 'Optional name for the merged document. Defaults to "merged.pdf".',
+              },
             },
-            required: ['documents', 'output_name'],
+            required: ['documents'],
             additionalProperties: false,
           },
           execute: async (input) => {
-            const args = input as { documents: string[]; output_name: string }
+            const args = input as { documents: string[]; output_name?: string }
             try {
               const doc = await mergeDocuments(args.documents, args.output_name)
               return `Created "${doc.name}" with ${doc.pageCount} page(s).`
