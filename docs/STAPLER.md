@@ -283,18 +283,3 @@ index.html loads /src/main.tsx, which browsers can't run) until dist was
 redeployed. Verify after every deploy: homepage must reference
 /assets/index-*.js and the agent-ready badge must go green.
 
-## House rules (every session)
-
-- Repo-local `git config user.name "sujeet121696"` /
-  `user.email "sujeetsingh121696@gmail.com"` BEFORE first commit.
-- Personal accounts only. Nothing company-related, ever.
-- Pre-push: grep tree for toast/toasttab/work email; no .env, no data files.
-- New code only — nothing from Resolve (TGPF exclusivity).
-
-## Idea bank (not for this challenge — banked, unpublished, still ours)
-
-- **SeatWise** — event seating planner; agent captures human-politics
-  constraints, deterministic solver places, human drags to override. Candidate
-  for Nebius×NVIDIA (Sept 27–Oct 30).
-- **MeetPoint** — availability poll that attendees' OWN agents fill
-  (multi-agent-on-one-page; needs shared-state backend).
