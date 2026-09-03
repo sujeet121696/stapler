@@ -83,7 +83,7 @@ export async function extractPages(name: string, spec: string, outputName?: stri
 }
 
 /** Merges the named documents, in order, into a new document in the workspace. */
-export async function mergeDocuments(names: string[], outputName: string): Promise<StaplerDoc> {
+export async function mergeDocuments(names: string[], outputName?: string): Promise<StaplerDoc> {
   if (names.length < 2) throw new Error('Merging needs at least two documents.')
   const sources = names.map(findDoc)
   const out = await PDFDocument.create()
@@ -93,7 +93,7 @@ export async function mergeDocuments(names: string[], outputName: string): Promi
     for (const page of copied) out.addPage(page)
   }
   const bytes = await out.save()
-  const newName = ensurePdfName(outputName)
+  const newName = ensurePdfName(outputName ?? 'merged.pdf')
   const doc = makeDoc(newName, bytes, out.getPageCount())
   mutateDocs(
     [...getState().docs, doc],
