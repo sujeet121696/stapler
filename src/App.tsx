@@ -63,7 +63,8 @@ export default function App() {
     <div className="app">
       <header>
         <h1>
-          📎 Stapler
+          <img className="logo" src="/logo.svg" alt="" width="36" height="36" />
+          Stapler
           <span className={`badge ${webMcpOn ? 'on' : 'off'}`}>
             {webMcpOn ? 'agent-ready' : 'WebMCP not available'}
           </span>

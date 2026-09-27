@@ -12,7 +12,7 @@ tool, not a PDF editor full of menus.
 
 | Area | Contents |
 |---|---|
-| Header | 📎 logo, WebMCP status badge, tagline |
+| Header | Logo (`public/logo.svg`), WebMCP status badge, tagline |
 | Workspace (left) | Drop zone (PDF only), **Load sample documents** button while empty, document cards (name, pages, size) |
 | Operations log (right) | Timestamped list of every action by the human or the agent, the main feedback during a run |
 | Preview modal | In-page PDF iframe. Close with ×, the backdrop, or Esc |
@@ -27,6 +27,7 @@ tool, not a PDF editor full of menus.
 | Warning badge | `#fbbf24` on `#3d2a11` |
 | Font | System UI stack |
 | Max content width | 960px |
+| Brand gradient | `#4ade80` → `#14b8a6` (logo, favicon) |
 
 Dark theme only. Pill badges, rounded cards, minimal chrome.
 
