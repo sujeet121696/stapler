@@ -12,6 +12,11 @@ header h1 {
   margin: 0;
 }
 
+.logo {
+  display: block;
+  flex-shrink: 0;
+}
+
 .badge {
   font-size: 0.7rem;
   font-weight: 600;
